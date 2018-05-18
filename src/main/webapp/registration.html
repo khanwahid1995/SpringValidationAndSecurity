@@ -28,7 +28,10 @@
 	</select>
 	<input type="submit" value="Submit">
 </form>
-
+<form action="logout"  method="POST">
+	<input type="submit" value="logout"/>
+	<input type="hidden" name="_csrf" id='token' value=""/>
+</form>
 
 </body>
 <script type="text/javascript">
@@ -77,6 +80,9 @@ frm.submit(function (e) {
         },
     });
 });
-
+update();
+function update(){
+	document.getElementById('token').value=location.href.substring(location.href.indexOf('=')+1);
+}
 </script>
 </html>
